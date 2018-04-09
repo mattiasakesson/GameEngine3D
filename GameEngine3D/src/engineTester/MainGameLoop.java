@@ -90,7 +90,16 @@ public class MainGameLoop {
             entities.add(new Entity(fern, random.nextInt(4), new Vector3f(x,y,z),
 	        		0,0,0,1+random.nextFloat()*1));
         }
-		Light light = new Light(new Vector3f(20000,20000,2000),new Vector3f(1,1,1));
+		
+        
+        
+        
+        Light light = new Light(new Vector3f(20000,800,20000),new Vector3f(1,1,1));
+		List<Light> lights = new ArrayList<Light>();
+		lights.add(light);
+		lights.add(new Light(new Vector3f(-7000,200,-7000),new Vector3f(1,0,0)));
+		
+		
 		
 		MasterRenderer renderer = new MasterRenderer();
 		
@@ -118,7 +127,7 @@ public class MainGameLoop {
                 renderer.processEntity(entity);
             }
 			
-			renderer.render(light, camera);
+			renderer.render(lights, camera);
 			DisplayManager.updateDisplay();
 		}
 		
