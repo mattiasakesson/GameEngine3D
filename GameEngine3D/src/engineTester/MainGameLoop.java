@@ -91,10 +91,6 @@ public class MainGameLoop {
 	        		0,0,0,1+random.nextFloat()*1));
         }
 		Light light = new Light(new Vector3f(20000,20000,2000),new Vector3f(1,1,1));
-		List<Light> lights = new ArrayList<Light>();
-		lights.add(light);
-		//lights.add(new Light(new Vector3f(-200,10,-200), new Vector3f(10,0,0)));
-		//lights.add(new Light(new Vector3f(200,10,200), new Vector3f(0,0,10)));
 		
 		MasterRenderer renderer = new MasterRenderer();
 		
@@ -106,9 +102,9 @@ public class MainGameLoop {
 		Player player  = new Player(stanfordBunny, new Vector3f(0, 0,-50), 0, 0, 0, 1);
 		Camera camera = new Camera(player);
 		
-		List<GuiTexture> guis = new ArrayList<GuiTexture>();
-		GuiTexture gui = new GuiTexture(loader.loadTexture("socuwan"), new Vector2f(0.5f,0.5f), new Vector2f(0.25f,0.25f));
-		guis.add(gui);
+		//List<GuiTexture> guis = new ArrayList<GuiTexture>();
+		//GuiTexture gui = new GuiTexture(loader.loadTexture("socuwan"), new Vector2f(0.5f,0.5f), new Vector2f(0.25f,0.25f));
+		//guis.add(gui);
 		
 		GuiRenderer guiRenderer = new GuiRenderer(loader);
 		
@@ -122,8 +118,7 @@ public class MainGameLoop {
                 renderer.processEntity(entity);
             }
 			
-			renderer.render(lights, camera);
-			guiRenderer.render(guis);
+			renderer.render(light, camera);
 			DisplayManager.updateDisplay();
 		}
 		
